@@ -49,7 +49,7 @@ build android:
           - $CI_PROJECT_DIR/.gradle/wrapper/
           - $CI_PROJECT_DIR/.gradle/caches/
     before_script:
-        - echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
+        - echo fs.inotify.max_user_watches=524288 >> /etc/sysctl.conf
         - yarn install
     script:
         - echo $SENTRY_PROPS | base64 -d > ./android/sentry.properties
